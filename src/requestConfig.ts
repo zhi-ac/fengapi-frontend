@@ -26,6 +26,8 @@ interface ResponseStructure {
  */
 export const requestConfig: RequestConfig = {
   baseURL: 'http://localhost:7529',
+  // baseURL: 'http://10.242.223.234:7529',
+  // baseURL: 'http://106.53.69.148:7529',
   withCredentials: true,
 
 

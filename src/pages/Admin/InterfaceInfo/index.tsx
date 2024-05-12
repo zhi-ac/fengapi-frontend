@@ -176,11 +176,21 @@ const TableList: React.FC = () => {
       dataIndex: 'method',
       // 展示的文本为富文本编辑器
       valueType: 'text',
+      formItemProps: {
+        rules: [{
+          required: true,
+        }]
+      }
     },
     {
       title: 'url',
       dataIndex: 'url',
       valueType: 'text',
+      formItemProps: {
+        rules: [{
+          required: true,
+        }]
+      }
     },
     {
       title: '请求参数',
