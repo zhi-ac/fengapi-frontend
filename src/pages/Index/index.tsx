@@ -1,8 +1,7 @@
-import {PageContainer} from '@ant-design/pro-components';
-import React, {useEffect, useState} from 'react';
-import {List, message} from 'antd';
-import {listInterfaceInfoByPageUsingGet} from "@/services/fengapi-backend/interfaceInfoController";
-
+import { listInterfaceInfoByPageUsingGet } from '@/services/fengapi-backend/interfaceInfoController';
+import { PageContainer } from '@ant-design/pro-components';
+import { List, message } from 'antd';
+import React, { useEffect, useState } from 'react';
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
@@ -57,12 +56,16 @@ const Index: React.FC = () => {
         renderItem={(item) => (
           // const apiLink = `/interface_info/${item.id}`;
           <List.Item
-            actions={[<a key={item.id} href={`/interface_info/${item.id}`}>查看</a>]}
+            actions={[
+              <a key={item.id} href={`/interface_info/${item.id}`}>
+                查看
+              </a>,
+            ]}
           >
-              <List.Item.Meta
-                title={<a href="https://ant.design">{item.name}</a>}
-                description={item.description}
-              />
+            <List.Item.Meta
+              title={<a href={`/interface_info/${item.id}`}>{item.name}</a>}
+              description={item.description}
+            />
           </List.Item>
         )}
         // 分页配置
@@ -84,7 +87,6 @@ const Index: React.FC = () => {
         }}
       />
     </PageContainer>
-
   );
 };
 

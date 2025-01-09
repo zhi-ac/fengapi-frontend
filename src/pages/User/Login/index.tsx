@@ -1,5 +1,6 @@
 import { Footer } from '@/components';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { userLoginUsingPost } from '@/services/fengapi-backend/userController';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -18,9 +19,7 @@ import { Helmet, history, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
-import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
-import { userLoginUsingPost } from '@/services/fengapi-backend/userController';
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -104,7 +103,7 @@ const Login: React.FC = () => {
           history.push(urlParams.get('redirect') || '/');
         }, 100);
         setInitialState({
-          loginUser: res.data
+          loginUser: res.data,
         });
         return;
       }
@@ -186,7 +185,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined />,
                 }}
-                placeholder={'密码: ant.design'}
+                placeholder={'密码: 12345678'}
                 rules={[
                   {
                     required: true,
